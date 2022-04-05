@@ -1,6 +1,6 @@
 var balloon,balloonImage1,balloonImage2;
 // create database and position variable here
-var database,position
+var database,position;
 function preload(){
    bg =loadImage("cityImage.png");
    balloonImage1=loadAnimation("hotairballoon1.png");
@@ -19,8 +19,8 @@ function setup() {
   balloon.scale=0.5;
 
   textSize(20); 
-  var balloonPosition = database.ref("balloon/position");
-  balloonPosition.on("value",readPosition, showError);
+  var balloonPosition = database.ref('balloon/position');
+  balloonPosition.on("value",readPosition,showError);
 }
 
 // function to display UI
@@ -66,5 +66,5 @@ function readPosition(data){
   balloon.y = position.y;
 }
 function showError(){
-  console.log("Error");
+  console.log("error in writing to the database");
 }
